@@ -1,0 +1,25 @@
+[Unit]
+Description=Nuoman wedding case website
+After=network.target
+
+[Service]
+Type=simple
+User=nuoman
+Group=nuoman
+WorkingDirectory=/opt/nuomanhunli
+Environment=NODE_ENV=production
+Environment=HOST=127.0.0.1
+Environment=PORT=4188
+Environment=CODEX_HOME=/opt/nuomanhunli/.codex
+ExecStart=/opt/nuoman-node/bin/node /opt/nuomanhunli/server.js
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/nuomanhunli/data
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target

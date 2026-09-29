@@ -1,0 +1,27 @@
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Persistent customer and production data
+/data/
+/releases/
+*.db
+*.sqlite
+
+# Local runtime and developer artifacts
+/node_modules/
+/.tmp-*/
+/work/
+*.log
+desktop-filter-preview.png
+mobile-filter-preview*.png
+
+# WeChat Developer Tools account-specific state
+/miniprogram-admin/project.private.config.json
+/miniprogram-showcase/project.private.config.json
+
+/project.private.config.json
+/deploy/remote-cli.js

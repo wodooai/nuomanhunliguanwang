@@ -1,0 +1,10 @@
+{
+  "miniprogramRoot": "./",
+  "projectname": "诺漫婚礼展示端",
+  "setting": {
+    "es6": true,
+    "minified": true
+  },
+  "appid": "wx01d41a2dbcbc31fb",
+  "compileType": "miniprogram"
+}

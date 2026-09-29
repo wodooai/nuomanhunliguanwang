@@ -1,0 +1,2 @@
+const {request,media,requireLogin}=require('../../utils/api');
+Page({data:{list:[]},onShow(){if(!requireLogin())return;this.load()},async load(){try{let db=await request('/api/store/data'),list=db.cases.filter(c=>wx.getStorageSync('liked-'+c.id)===true).map(c=>({...c,cover:media(c.cover||c.images?.[0])}));this.setData({list})}catch(e){wx.showToast({title:e.error||'加载失败',icon:'none'})}},detail(e){wx.navigateTo({url:'/pages/detail/detail?id='+e.currentTarget.dataset.id})},home(){wx.reLaunch({url:'/pages/index/index'})},profile(){wx.reLaunch({url:'/pages/profile/profile'})}});

@@ -1,0 +1,29 @@
+/* 诺漫的动效语言：缓入、轻位移、金色光线；只动画 transform / opacity。 */
+:root{--motion-ease:cubic-bezier(.22,1,.36,1)}
+.ghost,.gold,.chip,.navigation-trigger,.filter-tab,.heart,.featured-card,.member-chip{transition:background-color .28s ease,border-color .28s ease,color .28s ease,box-shadow .36s ease,transform .45s var(--motion-ease)}
+.ghost:not(:disabled):hover,.gold:not(:disabled):hover,.member-chip:hover{transform:translateY(-2px);box-shadow:0 8px 22px #0005,0 0 0 1px #d8b87b55}
+.ghost:not(:disabled):active,.gold:not(:disabled):active,.chip:active{transform:translateY(0) scale(.98)}
+.chip:not(:disabled):hover,.filter-tab:hover{transform:translateY(-1px)}
+.heart{backdrop-filter:blur(8px)}.heart:hover{transform:scale(1.12);color:var(--gold)}
+.card{cursor:pointer;border:1px solid transparent;transition:transform .6s var(--motion-ease),border-color .4s ease,box-shadow .6s var(--motion-ease)}
+.card::after{content:"";position:absolute;inset:auto 0 0;height:2px;background:linear-gradient(90deg,transparent,#d8b87b,transparent);transform:scaleX(0);transform-origin:center;transition:transform .65s var(--motion-ease);pointer-events:none}
+.card:hover{transform:translateY(-5px);border-color:#79674899;box-shadow:0 22px 42px #0007}.card:hover::after{transform:scaleX(1)}
+.card img{transition:transform .9s var(--motion-ease),filter .7s ease}.card:hover img{transform:scale(1.055);filter:brightness(.89)}
+.featured-card{overflow:hidden;position:relative}.featured-card:hover{transform:translateY(-4px);box-shadow:0 18px 35px #0008;border-color:var(--gold)}
+.featured-card::before{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 20%,#ffffff16 50%,transparent 80%);transform:translateX(-130%);transition:transform .9s var(--motion-ease);pointer-events:none}.featured-card:hover::before{transform:translateX(130%)}
+.navigation-menu{transform-origin:top left;animation:menu-bloom .32s var(--motion-ease) both}
+#support-launcher{transition:transform .4s var(--motion-ease),box-shadow .4s ease}#support-launcher:hover{transform:translateY(-3px);box-shadow:0 15px 38px #000a,0 0 0 5px #d8b87b24}#support-panel:not([hidden]){transform-origin:bottom right;animation:support-open .42s var(--motion-ease) both}
+.login-layer{animation:veil-in .28s ease both}.login-box{animation:dialog-rise .48s var(--motion-ease) both}.drawer{animation:drawer-enter .5s var(--motion-ease) both}.viewer .mainimg{animation:image-reveal .5s var(--motion-ease) both}
+.case-detail h1,.case-detail .description{animation:detail-rise .7s var(--motion-ease) both}.case-detail .description{animation-delay:.08s}
+.site-intro .hero .eyebrow{animation:detail-rise .7s var(--motion-ease) both}.site-intro .hero h1{animation:detail-rise .85s var(--motion-ease) .08s both}.site-intro .hero p{animation:detail-rise .85s var(--motion-ease) .16s both}
+.site-intro .hero::before{animation:hero-veil 1.5s ease both}
+@keyframes veil-in{from{opacity:0}to{opacity:1}}
+@keyframes dialog-rise{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes drawer-enter{from{opacity:.6;transform:translateX(28px)}to{opacity:1;transform:translateX(0)}}
+@keyframes image-reveal{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:scale(1)}}
+@keyframes detail-rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes menu-bloom{from{opacity:0;transform:translateY(-8px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes support-open{from{opacity:0;transform:translateY(12px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes hero-veil{from{opacity:.45}to{opacity:1}}
+@media(max-width:650px){.card:hover,.featured-card:hover,.ghost:not(:disabled):hover,.gold:not(:disabled):hover{transform:none;box-shadow:none}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}

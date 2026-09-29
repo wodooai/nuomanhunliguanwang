@@ -1,0 +1,1 @@
+page{background:#fffaf5;color:#302720;font-family:system-ui}.page{padding:28rpx}.button{background:#a77b48;color:#fff;border-radius:10rpx;padding:18rpx;text-align:center}.button::after{border:0}.input{background:#fff;border:1rpx solid #e4d9cf;border-radius:10rpx;padding:20rpx;margin:12rpx 0;font-size:28rpx}.muted{font-size:24rpx;color:#8b7b70}.danger{color:#b74d42}
